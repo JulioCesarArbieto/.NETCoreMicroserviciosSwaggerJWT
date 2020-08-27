@@ -6,6 +6,9 @@ using System.Linq;
 
 namespace CONTINER.API.MANAGER.Account.Controllers
 {
+    /// <summary>
+    /// Controlador de Cuentas denominado AccountController
+    /// </summary>
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
@@ -27,6 +30,25 @@ namespace CONTINER.API.MANAGER.Account.Controllers
             return Ok(_services.GetAll());
         }
 
+        /// <summary>
+        /// This method generate a Deposit in diferent account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// Sample request:
+        /// 
+        ///     {
+        ///       "IdAccount" : 1,
+        ///       "Amount"    : 200.00
+        ///     }
+        ///     
+        /// Sample response :
+        /// 
+        ///     Interface IActionResult
+        /// 
+        /// </remarks>
+        /// <param name="request"></param>
+        /// <returns>IActionResult</returns>
         [Authorize]
         [HttpPost("Deposit")]
         public IActionResult Deposit([FromBody] AccountRequest request)
@@ -43,7 +65,25 @@ namespace CONTINER.API.MANAGER.Account.Controllers
             _services.Deposit(account);
             return Ok();
         }
-
+        /// <summary>
+        /// This method generate a Withdrawal in diferent Account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// Sample request:
+        /// 
+        ///     {
+        ///       "IdAccount" : 1,
+        ///       "Amount"    : 200.00
+        ///     }
+        ///     
+        /// Sample response:
+        /// 
+        ///     Interface IActionResult
+        /// 
+        /// </remarks>
+        /// <param name="request"></param>
+        /// <returns>IActionResult</returns>
         [Authorize]
         [HttpPost("Withdrawal/")]
         public IActionResult Withdrawal([FromBody] AccountRequest request)
