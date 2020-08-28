@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CONTINER.API.MANAGER.Withdrawal.Controllers
 {
+    /// <summary>
+    /// Controlador designado para gestionar los retiros
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class TransactionController : ControllerBase
@@ -21,7 +24,25 @@ namespace CONTINER.API.MANAGER.Withdrawal.Controllers
             _servicesAccount = servicesAccount;
         }
 
-
+        /// <summary>
+        ///  Metodo que realiza un retiro de una cuenta
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// Sample request:
+        /// 
+        ///     {
+        ///         "AccountId": 1,
+        ///         "Amount": 200.10
+        ///     }
+        ///     
+        /// Sample response :
+        /// 
+        ///     IActionResult
+        /// 
+        /// </remarks>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost("Withdrawal")]
         public IActionResult Withdrawal([FromBody] TransactionRequest request)
         {

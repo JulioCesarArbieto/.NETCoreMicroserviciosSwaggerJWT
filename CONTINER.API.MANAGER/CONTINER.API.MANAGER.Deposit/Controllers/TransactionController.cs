@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CONTINER.API.MANAGER.Deposit.Controllers
 {
+    /// <summary>
+    /// Controller TransactionController define all accion in Transaction
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class TransactionController : ControllerBase
@@ -21,6 +24,25 @@ namespace CONTINER.API.MANAGER.Deposit.Controllers
             _servicesAccount = servicesAccount;
         }
 
+        /// <summary>
+        /// This method generate Transaction in diferent accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// Sample request:
+        /// 
+        ///     {
+        ///       "IdAccount" : 1,
+        ///       "Amount"    : 200.00
+        ///     }
+        ///     
+        /// Sample response :
+        /// 
+        ///     Interface IActionResult
+        /// 
+        /// </remarks>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost("Deposit")]
         public IActionResult Deposit([FromBody] TransactionRequest request)
         {

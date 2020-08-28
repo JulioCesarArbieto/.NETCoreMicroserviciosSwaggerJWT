@@ -7,6 +7,9 @@ using Microsoft.Extensions.Options;
 
 namespace CONTINER.API.MANAGER.Security.Controllers
 {
+    /// <summary>
+    /// Controlador de Autentificacion y creacion de JWT
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -20,12 +23,35 @@ namespace CONTINER.API.MANAGER.Security.Controllers
             _jwtOption = jwtOption.Value;
         }
 
+        /// <summary>
+        /// metodo que lista todo los usuarios que tienen acceso a la aplicacion
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_services.GetAll());
         }
 
+        /// <summary>
+        /// Metodo encargado de crear un JWT para poder realizar las pruebas
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// Sample request:
+        /// 
+        ///     {
+        ///         "Username": julioarbieto,
+        ///         "Password": julioCode@
+        ///     }
+        ///     
+        /// Sample response :
+        /// 
+        ///     IActionResult
+        /// 
+        /// </remarks>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody] AuthRequest request)
         {
