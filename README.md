@@ -9,7 +9,7 @@ Linkedin : https://www.linkedin.com/in/julio-césar-arbieto-chavez-867159155/
 * Este proyecto es una muestra de como Configuara el Swagger - el cual sirve para documentar las 
 API REST Mediante un formato XML para ello debemos realizar serie de paso:*
 
-- Paso 01 : Crear el proyecto 
+- Paso 01 : Crear el proyecto Net core empty - Api
 - Paso 02 : Instalar Nuget Swashbuckle.AspNetCore
 - Paso 03 : Moodificar el metodo ConfigureServices del startup - agregar la seccion "Swagger Configure Developer".
        
